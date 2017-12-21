@@ -1,0 +1,14 @@
+"0","setMethod(""plot"", ""polygon"",
+          function(x, y, ...) {
+                  plot(x@x, x@y, type = ""n"", ...)
+                  xp <- c(x@x, x@x[1])
+                  yp <- c(x@y, x@y[1])
+                  lines(xp, yp)
+	  })
+"
+"2","Creating a generic function for ‘plot’ from package ‘graphics’ in the global environment
+"
+"1","[1]"
+"1"," ""plot"""
+"1","
+"

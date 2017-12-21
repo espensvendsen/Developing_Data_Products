@@ -1,0 +1,22 @@
+---
+title: "Homework week 3"
+author: "Espen Svendsen"
+date: "21 12 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Diamond plot
+
+```{r diamons, echo = FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+library(plotly)
+
+diamonds$clarity_scale <- as.numeric(diamonds$clarity)
+diamonds$cut_scale <- as.numeric(diamonds$cut)
+plot_ly(diamonds, x = ~carat, y = ~price, color = ~clarity_scale, size = ~cut_scale, type = "scatter", mode = "markers") %>%
+  layout(title = 'Diamond price (size = cut quality)')
+```

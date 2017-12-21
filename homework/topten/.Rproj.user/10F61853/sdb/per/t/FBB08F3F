@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# Hello, world!\n#\n# This is an example function named 'hello'\n# which prints 'Hello, world!'.\n#\n# You can learn more about package authoring with RStudio at:\n#\n#   http://r-pkgs.had.co.nz/\n#\n# Some useful keyboard shortcuts for package authoring:\n#\n#   Build and Reload Package:  'Cmd + Shift + B'\n#   Check Package:             'Cmd + Shift + E'\n#   Test Package:              'Cmd + Shift + T'\n\n\n#' Building a model with Top 10 feautures\n#'\n#' This function develops a prediction algorithm based on the top 10 features in 'x' that are most predictive of 'y'-\n#'\n#' @param x a n x p matrix of n observations and p predictors\n#' @param y a vector of length n representing the response\n#' @return a vector of coefficients from the final fitted model with top 10 features\n#' @author Espen Svendsen\n#' @details\n#' This functions runs a univariate regression of y on each predictor in x and calculates\n#' a p-value indicating the significance of the assosiaction. The final set of 10 predictors\n#' is taken from the 10 smallest p-values.\n#' @seealso \\code{stats::lm}\n#' @export\n#' @importFrom(\"stats\", \"coef\", \"lm\")\ntopten <- function(x, y) {\n  p <- ncol(x)\n  if (p < 10)\n    stop(\"Number of preditors must be at least 10\")\n  pvalues <- numeric(p)\n  for (i in seq_len(p)) {\n    fit <- lm(y ~x[,i])\n    summ <- summary(fit)\n    pvalues[i] <- summ$coefficients[2, 4]\n  }\n  ord <- order(pvalues)\n  ord <- ord[1:10]\n  x10 <- x[, ord]\n  fit <- lm (y ~ x10)\n  coef(fit)\n}\n\n#' Prediction with the top 10 features\n#'\n#' This function takes a set of coefficients produced by the \\code{topten} function\n#' and makes a prediction for each of the values provided in the input 'X' matrix.\n#'\n#' @param X a n x 10 matrix containing n new observations\n#' @param b a vector of coefficients obtained from the \\code{topten} function\n#' @return a numeric vector cointaing the predicted values\n#' @export x\npredict10 <- function(X, b) {\n  X <- cbind(1, X)\n  drop(X %*% b)\n\n}\n",
+    "created" : 1513859655209.000,
+    "dirty" : false,
+    "encoding" : "ISO-8859-1",
+    "folds" : "",
+    "hash" : "2582786056",
+    "id" : "FBB08F3F",
+    "lastKnownWriteTime" : 1513859660,
+    "last_content_update" : 1513859660025,
+    "path" : "~/Google Drive/Coursera/Data scientist/repos/Developing_Data_Products/homework/topten/R/topten.R",
+    "project_path" : "R/topten.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "Package: topten\nType: Package\nTitle: Extract top 10 featues and makes a prediction\nVersion: 1.0\nAuthor: Espen Svendsen\nMaintainer: Espen Svendsen <espensvendsen@msn.com>\nDescription: More about what it does (maybe more than one line)\n    Use four spaces when indenting paragraphs within the Description.\nLicense: GPL-3\nEncoding: UTF-8\nLazyData: true\nRoxygenNote: 6.0.1\n",
+    "created" : 1513859690962.000,
+    "dirty" : false,
+    "encoding" : "ISO-8859-1",
+    "folds" : "",
+    "hash" : "3726034429",
+    "id" : "F5217CFB",
+    "lastKnownWriteTime" : 1513859804,
+    "last_content_update" : 1513859804,
+    "path" : "~/Google Drive/Coursera/Data scientist/repos/Developing_Data_Products/homework/topten/DESCRIPTION",
+    "project_path" : "DESCRIPTION",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "dcf"
+}
